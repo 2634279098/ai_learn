@@ -1,0 +1,5 @@
+# 依赖
+node_modules/
+
+# 工作助手配置（包含敏感信息）
+.workbuddy/
