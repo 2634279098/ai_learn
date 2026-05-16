@@ -52,6 +52,9 @@
 - **Cursor Plan Mode先规划后执行** — 要求AI先制定详细执行计划再动手，避免AI盲目生成不符合需求的代码，来源：AI开发者简报/2026-05-15_Cursor高级使用技巧_3.md
 - **Claude Code CLAUDE.md 分层管理** — 按目录分层管理CLAUDE.md（根目录通用规则约30行，子目录存放模块特定规则），配合条件规则语法（`<important if="...">`）让规则只在相关时才加载到上下文，来源：AI开发者简报/2026-05-16_Claude_Code_12大最佳实践_1.md
 - **Function Calling工具描述优化** — 写清晰的工具描述（明确说明何时使用、返回什么），最小化工具数量（每个工具定义消耗Token），来源：AI开发者简报/2026-05-16_Function_Calling完整指南_3.md
+- **Codex AGENTS.md 分层配置** — 全局(~/.codex/)→项目(仓库根)→模块(子目录)三级分层，子目录覆盖父目录，精准注入项目上下文，来源：AI开发者简报/2026-05-17_OpenAI_Codex最佳实践指南_1.md
+- **Agent Skills source-driven-development** — 基于官方文档做框架决策，验证引用来源，标记未验证内容，避免AI幻觉，来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
+- **Anthropic 工具描述优化(ACI)** — 像为初级开发人员写文档字符串一样优化工具参数名称和描述，包含示例用法和边缘情况，来源：AI开发者简报/2026-05-17_Anthropic_构建高效AI_Agent指南_3.md
 
 ---
 
@@ -67,6 +70,9 @@
 - **示例驱动生成** — 提供 2-3 个输入输出示例，让 AI 模仿现有代码风格，来源：AI开发者简报/2026-05-13_GitHub_Copilot进阶技巧_2.md
 - **使用 #region 分段** — 用代码块标记帮助 AI 定位生成位置，保持代码组织清晰，来源：AI开发者简报/2026-05-13_GitHub_Copilot进阶技巧_2.md
 - **打开相关文件扩大上下文** — 在 IDE 中打开相似实现、接口定义、测试文件作为参考，来源：AI开发者简报/2026-05-13_GitHub_Copilot进阶技巧_2.md
+- **Agent Skills 代码简化规则** — Chesterton栅栏原则（不理解就不删除）+ 500规则（单文件不超过500行），来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
+- **Agent Skills Git工作流** — 基于主干开发、原子提交（变更约100行）、提交即保存点，来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
+- **Agent Skills CI/CD左移** — 在CI/CD中尽早发现问题，特性标志+质量门禁流水线，来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
 
 ---
 
@@ -86,6 +92,9 @@
 - **Claude Code Hooks旁路自动化** — 使用 PostToolUse 钩子在工具执行后自动运行格式化/日志记录；使用 Stop 钩子让"完成"真正代表完成（运行测试套件验证），来源：AI开发者简报/2026-05-16_Claude_Code_12大最佳实践_1.md
 - **OpenAI Agent全链路可观测性** — 使用OpenTelemetry自定义`agent_step_id`属性，关联一个Agent步骤中的10+次API调用，便于调试追溯，来源：AI开发者简报/2026-05-16_OpenAI_Agent架构生产最佳实践_2.md
 - **Function Calling错误处理规范化** — 记录完整日志（函数名、参数、结果长度、延迟、时间戳）；用Pydantic做类型安全验证；构建统一抽象层兼容所有模型，来源：AI开发者简报/2026-05-16_Function_Calling完整指南_3.md
+- **Agent Skills 五步调试法** — 复现→定位→简化→修复→防护，配套停机规则与安全回退机制，来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
+- **Codex 失败模式调试** — 针对过度思考/日志式更新/重复性口癖三类高频失败模式提供具体提示词修正方案，来源：AI开发者简报/2026-05-17_OpenAI_Codex最佳实践指南_1.md
+- **Anthropic 工具防错设计(Poka-yoke)** — 更改工具参数使犯错更困难（如强制绝对路径），来源：AI开发者简报/2026-05-17_Anthropic_构建高效AI_Agent指南_3.md
 
 ---
 
@@ -101,6 +110,9 @@
 - **重视前期规划** — 投入时间进行架构设计和需求分析，能显著减少后期返工，来源：AI开发者简报/2026-05-13_Cursor项目开发最佳实践_1.md
 - **开发者角色转变** — 从"代码编写者"转变为"需求定义者、问题拆解者、质量把控者"，来源：AI开发者简报/2026-05-13_腾讯CodeBuddy实践案例_4.md
 - **详细提示词策略** — 使用函数命名 + docstring 约定、示例驱动等方式明确期望，来源：AI开发者简报/2026-05-13_GitHub_Copilot进阶技巧_2.md
+- **Agent Skills spec-driven-development** — 先写需求文档再写代码，覆盖目标、命令、结构、代码风格、测试、边界等完整维度，来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
+- **Agent Skills idea-refine** — 结构化发散/收敛思考流程，将模糊想法转化为具体可执行的提案，减少需求误解，来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
+- **Anthropic 简单性原则** — 从简单提示开始，通过评估迭代优化，只在简单方案不足时才增加复杂性，来源：AI开发者简报/2026-05-17_Anthropic_构建高效AI_Agent指南_3.md
 
 ---
 
@@ -120,6 +132,10 @@
 - **Claude Code --bare 参数加速** — 通过Agent SDK编程方式调用Claude时使用`--bare`参数，跳过上下文发现过程，启动时间减少最高10倍，适合批量自动化场景，来源：AI开发者简报/2026-05-16_Claude_Code_12大最佳实践_1.md
 - **OpenAI Agent成本精细化监控** — 追踪每次Agent执行的总Token和费用（而非单次API调用），用幂等键防止重复调用浪费成本，来源：AI开发者简报/2026-05-16_OpenAI_Agent架构生产最佳实践_2.md
 - **Function Calling成本监控** — 追踪每次Agent执行的总Token和费用，系统化测试工具定义（用pytest验证工具选择准确性和参数提取正确性），来源：AI开发者简报/2026-05-16_Function_Calling完整指南_3.md
+- **Codex云端沙箱隔离** — 云端智能体运行在OpenAI安全沙箱（独立容器，无网络访问），本地CLI的Full Auto模式使用macOS Seatbelt或Linux Docker容器隔离，来源：AI开发者简报/2026-05-17_OpenAI_Codex最佳实践指南_1.md
+- **Agent Skills TDD 测试驱动** — 红-绿-重构经典流程，测试金字塔80/15/5分层，Beyonce规则（喜欢它就写测试），来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
+- **Agent Skills 安全加固** — OWASP Top 10防护、认证模式、密钥管理、依赖审计、三层边界系统，来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
+- **Anthropic 工具设计ACI原则** — 像重视HCI一样重视Agent-Computer Interface，优化工具描述和参数命名，防错设计（Poka-yoke），来源：AI开发者简报/2026-05-17_Anthropic_构建高效AI_Agent指南_3.md
 
 ---
 
@@ -161,4 +177,4 @@
 ---
 
 *文档创建：2026-05-13*
-*最后更新：2026-05-16（根据今日开发者简报补充应对措施）*
+*最后更新：2026-05-17（根据今日开发者简报补充应对措施）*
