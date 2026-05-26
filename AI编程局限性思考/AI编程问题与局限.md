@@ -32,6 +32,7 @@
 - **Claude Code Stop钩子自动验证** — 配置 Stop 钩子连接验证脚本（运行测试套件、检查文件存在性、调用 API 端点验证响应），验证失败则任务状态回滚，Claude 继续工作直到通过，来源：AI开发者简报/2026-05-16_Claude_Code_12大最佳实践_1.md
 - **OpenAI Agent架构安全检查清单** — API Key 轮换（每90天）、输入验证（正则过滤Prompt注入）、网络隔离、幂等缓存持久化、静态加密、审计日志，来源：AI开发者简报/2026-05-16_OpenAI_Agent架构生产最佳实践_2.md
 - **Claude Code Review 多智能体并行审查** — 采用Bug检测/安全审查/回归分析/边界条件四类专业化代理并行工作，验证代理二次过滤误报，PR>1000行发现问题比例84%，误报率<1%，来源：AI开发者简报/2026-05-22_Claude_2026新功能全景_2.md
+- **Claude Code LSP 插件代码智能** — 安装对应语言的官方 LSP 插件（Kotlin LSP、TypeScript LSP 等12种语言），让 Claude Code 自动获取类型检查、符号跳转、诊断信息等代码智能，从源头减少类型错误和引用错误，来源：AI开发者简报/2026-05-26_Claude_Code官方插件系统深度解析_1.md
 
 ---
 
@@ -77,6 +78,7 @@
 - **Agent Skills Git工作流** — 基于主干开发、原子提交（变更约100行）、提交即保存点，来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
 - **Agent Skills CI/CD左移** — 在CI/CD中尽早发现问题，特性标志+质量门禁流水线，来源：AI开发者简报/2026-05-17_谷歌Agent_Skills工程化实践_2.md
 - **Claude Parallel Worktree 隔离开发** — 原生集成Git worktree，自动创建独立工作目录和隔离分支，多任务开发完全互不干扰，合并时冲突大幅减少，来源：AI开发者简报/2026-05-22_Claude_2026新功能全景_2.md
+- **Claude Code 插件化团队规范** — 将团队编码规范、代码审查流程、工作流模板打包为标准化插件，跨项目安装分发，确保全员代码风格一致，从源头减少风格割裂，来源：AI开发者简报/2026-05-26_Claude_Code官方插件系统深度解析_1.md
 
 ---
 
@@ -101,6 +103,7 @@
 - **Anthropic 工具防错设计(Poka-yoke)** — 更改工具参数使犯错更困难（如强制绝对路径），来源：AI开发者简报/2026-05-17_Anthropic_构建高效AI_Agent指南_3.md
 - **Claude Code Review 验证代理二次过滤** — 验证代理对Bug检测/安全审查/回归分析/边界条件四类代理的候选问题进行二次验证，误报率<1%，来源：AI开发者简报/2026-05-22_Claude_2026新功能全景_2.md
 - **Managed Agents Outcomes 自动迭代优化** — 基于评估标准的任务成功判定系统，支持最多20次自动迭代优化，任务完成后通过Webhook通知，来源：AI开发者简报/2026-05-22_Code_with_Claude_2026大会完整解读_1.md
+- **LangGraph Studio 节点级可视化逐步调试** — 唯一支持 Agent 图节点级单步调试的工具，可追溯到每个检查点的完整状态快照，精确定位 Agent 决策链条中的每一步，来源：AI开发者简报/2026-05-26_2026年AI_Agent框架选型对比指南_2.md
 
 ---
 
@@ -146,6 +149,9 @@
 - **Anthropic 工具设计ACI原则** — 像重视HCI一样重视Agent-Computer Interface，优化工具描述和参数命名，防错设计（Poka-yoke），来源：AI开发者简报/2026-05-17_Anthropic_构建高效AI_Agent指南_3.md
 - **Managed Agents 托管执行** — Anthropic基础设施上托管运行智能体，开发者无需管理运行时环境，降低运维成本，来源：AI开发者简报/2026-05-22_Code_with_Claude_2026大会完整解读_1.md
 - **Gemini 3.5 Flash 智能体工作流模型** — 专为复杂智能体工作流设计，能有效执行多步骤任务，来源：AI开发者简报/2026-05-22_Google_IO_2026开发者公告详解_3.md
+- **Claude Code 插件安全审计清单** — 安装插件前检查 README/敏感配置（.mcp.json、hooks、可执行脚本）/权限范围，在测试仓库先验证再用于重要项目，防止恶意插件获取项目文件或调用外部服务，来源：AI开发者简报/2026-05-26_Claude_Code官方插件系统深度解析_1.md
+- **CodeBuddy 长命令超时自动后台化** — npm install / docker build 等长耗时命令超时不再被 kill，自动转为后台任务继续执行，通过 TaskOutput 查询结果，避免长时间构建/部署被误中断，来源：AI开发者简报/2026-05-26_CodeBuddy_Agent_Team多智能体协作能力详解_3.md
+- **CodeBuddy Agent Team 优雅关停握手** — 关停队员时先发送请求等待响应（默认15秒），超时兜底自动强制终止，避免队员卡死导致资源泄露，来源：AI开发者简报/2026-05-26_CodeBuddy_Agent_Team多智能体协作能力详解_3.md
 
 ---
 
