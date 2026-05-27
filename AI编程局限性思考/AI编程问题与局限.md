@@ -59,6 +59,7 @@
 - **Anthropic 工具描述优化(ACI)** — 像为初级开发人员写文档字符串一样优化工具参数名称和描述，包含示例用法和边缘情况，来源：AI开发者简报/2026-05-17_Anthropic_构建高效AI_Agent指南_3.md
 - **Google Antigravity 智能体优先平台** — 将AI从"辅助写代码"升级为"自主执行任务的开发伙伴"，智能体不仅能生成代码还能执行实际操作，来源：AI开发者简报/2026-05-22_Google_IO_2026开发者公告详解_3.md
 - **AI Studio Workspace集成** — 将AI Studio能力嵌入Gmail、Google Docs等Workspace应用，使AI能理解业务上下文，来源：AI开发者简报/2026-05-22_Google_IO_2026开发者公告详解_3.md
+- **Claude Code Dreaming 跨任务知识共享** — Agent 在同一代码库的任务间自动共享经验笔记，后续 Agent 自动读取历史上下文，从单次会话的有限理解扩展为跨会话的持续学习，来源：AI开发者简报/2026-05-27_Claude_Code_Dreaming机制深度解析_2.md
 
 ---
 
@@ -104,6 +105,7 @@
 - **Claude Code Review 验证代理二次过滤** — 验证代理对Bug检测/安全审查/回归分析/边界条件四类代理的候选问题进行二次验证，误报率<1%，来源：AI开发者简报/2026-05-22_Claude_2026新功能全景_2.md
 - **Managed Agents Outcomes 自动迭代优化** — 基于评估标准的任务成功判定系统，支持最多20次自动迭代优化，任务完成后通过Webhook通知，来源：AI开发者简报/2026-05-22_Code_with_Claude_2026大会完整解读_1.md
 - **LangGraph Studio 节点级可视化逐步调试** — 唯一支持 Agent 图节点级单步调试的工具，可追溯到每个检查点的完整状态快照，精确定位 Agent 决策链条中的每一步，来源：AI开发者简报/2026-05-26_2026年AI_Agent框架选型对比指南_2.md
+- **Claude Code Dreaming 自我审视循环** — Agent 在子任务间主动暂停、自我 review，自动寻找 pattern 和潜在 bug，将"人类反思"工程化为自动化循环，来源：AI开发者简报/2026-05-27_Claude_Code_Dreaming机制深度解析_2.md
 
 ---
 
@@ -152,6 +154,9 @@
 - **Claude Code 插件安全审计清单** — 安装插件前检查 README/敏感配置（.mcp.json、hooks、可执行脚本）/权限范围，在测试仓库先验证再用于重要项目，防止恶意插件获取项目文件或调用外部服务，来源：AI开发者简报/2026-05-26_Claude_Code官方插件系统深度解析_1.md
 - **CodeBuddy 长命令超时自动后台化** — npm install / docker build 等长耗时命令超时不再被 kill，自动转为后台任务继续执行，通过 TaskOutput 查询结果，避免长时间构建/部署被误中断，来源：AI开发者简报/2026-05-26_CodeBuddy_Agent_Team多智能体协作能力详解_3.md
 - **CodeBuddy Agent Team 优雅关停握手** — 关停队员时先发送请求等待响应（默认15秒），超时兜底自动强制终止，避免队员卡死导致资源泄露，来源：AI开发者简报/2026-05-26_CodeBuddy_Agent_Team多智能体协作能力详解_3.md
+- **Claude Code Dreaming 自动经验积累** — Agent 完成任务后自动记录踩坑笔记（修改文件、问题根因、解决方案），后续 Agent 处理同一代码库时自动读取，避免重复踩坑，来源：AI开发者简报/2026-05-27_Claude_Code_Dreaming机制深度解析_2.md
+- **Claude Code Token 四步优化法** — 查（/cost + ccusage 诊断）→砍（CLAUDE.md 三层架构，固定输入降76%）→保（Prompt Cache 命中享90%折扣）→控（--bare 模式、effortLevel 降级、Model-Mixing），来源：AI开发者简报/2026-05-27_Claude_Code_Token成本优化实战_3.md
+- **Anthropic Agent SDK 独立额度管理** — 6月15日起 Agent SDK 使用独立月度额度（Pro $20），超额后按 API 费率计费或停止服务，团队生产自动化建议切换 Claude Platform + API 密钥按量付费更可预测，来源：AI开发者简报/2026-05-27_Claude_Code_Agent_SDK新额度政策_1.md
 
 ---
 
@@ -193,4 +198,4 @@
 ---
 
 *文档创建：2026-05-13*
-*最后更新：2026-05-26（根据今日开发者简报补充6项应对措施）*
+*最后更新：2026-05-27（根据今日开发者简报补充5项应对措施：Dreaming经验积累、Token四步优化、Agent SDK额度管理、Dreaming自我审视、跨任务知识共享）*
