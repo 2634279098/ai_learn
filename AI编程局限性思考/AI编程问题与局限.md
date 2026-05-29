@@ -66,6 +66,9 @@
 - **context: fork 上下文隔离** — 让 Skill 或复杂任务在隔离子 Agent 中运行，完成后丢弃上下文，主 Agent 只接收摘要输出，从源头避免长会话上下文膨胀和注意力稀释，来源：AI开发者简报/2026-05-28_从跟风编程到Agent工程范式转变_3.md
 - **Plan Mode 防止边想边改翻车** — 涉及3个以上文件的重构或引入新架构模式时，先让 Claude Code 探索代码→列出方案→给出步骤清单→人工确认后再动手，避免 AI 盲目修改引发连锁错误，来源：AI开发者简报/2026-05-28_Claude_Code_12大工程化经验_1.md
 - **上下文主动压缩三件套** — /clear（完成子任务后清空）+/compact（压成摘要保留关键决策）+ 写入CLAUDE.md（跨会话决策持久化），将"等待上下文自然溢出"变为主动管理，来源：AI开发者简报/2026-05-28_Claude_Code_12大工程化经验_1.md
+- **CLAUDE.md 结构化项目记忆** — 使用 /init 自动生成或手动编写包含技术栈、代码风格、测试规范、禁止事项的 CLAUDE.md 模板，Claude Code 每次启动自动读取，保持一致代码风格并大幅减少重复说明，来源：AI开发者简报/2026-05-29_Claude_Code完整教学指南_1.md
+- **MCP 整合扩展上下文边界** — 通过 /mcp 连接 GitHub（读取 PR/Issue）、数据库（直接查询数据）、Slack（频道消息）、Filesystem（突破沙盒）等外部工具，让 AI Agent 获取超出项目目录的上下文信息，来源：AI开发者简报/2026-05-29_Claude_Code完整教学指南_1.md
+- **Dynamic Subagents 上下文同步与冲突解决** — Antigravity 2.0 的动态子代理机制：主 Agent 拆解任务后并行生成多个子 Agent 独立执行，通过 Context Sync 保持上下文一致性并自动解决冲突，适合大型 Feature 多模块协作场景，来源：AI开发者简报/2026-05-29_Google_Antigravity_2.0深度解析_3.md
 
 ---
 
@@ -169,6 +172,10 @@
 - **Rules 硬约束防废话输出** — 在 Rules 中写入输出约束（禁止生成README/文档/测试/复述需求）、零客套规则（禁止"好的""我明白"），将 Output Token 消耗降低50%+，来源：AI开发者简报/2026-05-28_CodeBuddy_Token节省与Skills实战_2.md
 - **Prompt Caching 实操指南** — 确保 Rules 和 Reference Files 内容/顺序不变且放在对话最前面，缓存命中 Token 价格仅 1/10，配合上下文控制实现 Input 成本降低 60%-80%，来源：AI开发者简报/2026-05-28_CodeBuddy_Token节省与Skills实战_2.md
 - **--bare 参数 10 倍加速 SDK 调用** — CLI 批量自动化场景使用 `claude --bare --prompt` 跳过上下文发现过程，启动时间减少最高 10 倍，来源：AI开发者简报/2026-05-28_从跟风编程到Agent工程范式转变_3.md
+- **Claude Code 三种启动模式按需选择** — 互动对话模式适合复杂迭代、单次执行模式适合脚本/CI/CD整合、指定模型启动按需降本，根据场景匹配模式避免浪费，来源：AI开发者简报/2026-05-29_Claude_Code完整教学指南_1.md
+- **Plan Mode 只规划不执行防误操作** — 重构大型模块或修改数据库 Schema 等高风险任务时使用 `claude --plan` 或口头要求先规划再动手，列出完整步骤经确认后才执行代码变更，来源：AI开发者简报/2026-05-29_Claude_Code完整教学指南_1.md
+- **Plan/Act 分离架构确保可审计性** — 使用 Cline/Roo/OpenCode 等 Plan/Act 分离工具，让 AI 先输出计划（无文件变更）→ 用户审查批准 → 再切换到 Act 模式执行，每次操作可追溯，来源：AI开发者简报/2026-05-29_AI编码Agent全景对比指南_2.md
+- **Architect/Editor 双模型分离降低重构风险** — Aider 的架构师/编辑器分离模式：推理模型（Opus/o1）负责规划变更描述 → 快速模型（Sonnet/GPT-4o）负责精确 diff 编辑，规划者不浪费 token 在语法上，大型重构最可靠，来源：AI开发者简报/2026-05-29_AI编码Agent全景对比指南_2.md
 
 ---
 
