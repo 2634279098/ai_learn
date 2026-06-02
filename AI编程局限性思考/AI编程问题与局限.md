@@ -91,6 +91,8 @@
 - **Claude Code 插件化团队规范** — 将团队编码规范、代码审查流程、工作流模板打包为标准化插件，跨项目安装分发，确保全员代码风格一致，从源头减少风格割裂，来源：AI开发者简报/2026-05-26_Claude_Code官方插件系统深度解析_1.md
 - **沙盒模式隔离开发** — 使用 /sandbox 在隔离环境中运行 shell 命令，限制爆炸半径，减少 84% 权限弹窗的同时防止误操作污染项目，来源：AI开发者简报/2026-05-28_从跟风编程到Agent工程范式转变_3.md
 - **需求拆分一次性说清** — 将要求、边界条件、参考范例一次性给出，少说"不要做什么"多说"要怎么做"，用正确示范替代否定约束，避免"挤牙膏式"对话导致代码风格不一致，来源：AI开发者简报/2026-05-28_CodeBuddy_Token节省与Skills实战_2.md
+- **Git Worktree 隔离并行开发** — Grok Build 的核心创新：每个子代理在独立的 Git worktree 中运行（独立分支、独立工作目录），可自由探索实验后选择最佳方案合并，完全不影响主工作空间，适合探索性重构和 A/B 架构实验，来源：AI开发者简报/2026-05-29_AI编码Agent全景对比指南_2.md
+- **Antigravity 取消文件树的 RAG 上下文** — Antigravity 2.0 将代码库向量化作为 RAG 底层 Context，通过 System Prompt 或自然语言指令修改逻辑而非手动定位文件路径，减少因文件路径错误导致的架构偏离，但需注意目前 UI 混乱和权限控制缺失，建议谨慎使用，来源：AI开发者简报/2026-05-29_Google_Antigravity_2.0深度解析_3.md
 
 ---
 
@@ -117,6 +119,8 @@
 - **Managed Agents Outcomes 自动迭代优化** — 基于评估标准的任务成功判定系统，支持最多20次自动迭代优化，任务完成后通过Webhook通知，来源：AI开发者简报/2026-05-22_Code_with_Claude_2026大会完整解读_1.md
 - **LangGraph Studio 节点级可视化逐步调试** — 唯一支持 Agent 图节点级单步调试的工具，可追溯到每个检查点的完整状态快照，精确定位 Agent 决策链条中的每一步，来源：AI开发者简报/2026-05-26_2026年AI_Agent框架选型对比指南_2.md
 - **Claude Code Dreaming 自我审视循环** — Agent 在子任务间主动暂停、自我 review，自动寻找 pattern 和潜在 bug，将"人类反思"工程化为自动化循环，来源：AI开发者简报/2026-05-27_Claude_Code_Dreaming机制深度解析_2.md
+- **Git Worktree 隔离调试** — Grok Build 的每个子代理在独立 worktree 中运行，调试时可在隔离环境中复现问题而不影响主分支，支持 A/B 方案对比和分歧-收敛工作流（先分头探索再汇聚最优路径），来源：AI开发者简报/2026-05-29_AI编码Agent全景对比指南_2.md
+- **多工具基准测试选型防坑** — 使用 SWE-bench Pro 或 Terminal-Bench 2.0 评估（SWE-bench Verified 已污染），实际差距：Opus 4.7 从 Verified 87.6% 降到 Pro 64.3% 下降 23+ 点，选工具前用真实基准测试而非营销数据做决策，来源：AI开发者简报/2026-05-29_AI编码Agent全景对比指南_2.md
 
 ---
 
@@ -217,4 +221,4 @@
 ---
 
 *文档创建：2026-05-13*
-*最后更新：2026-05-28（根据今日开发者简报补充10项应对措施：PreToolUse拦截危险命令、技术方案先对齐再动手、Skills按需加载防上下文污染、context:fork上下文隔离、Plan Mode防翻车、上下文主动压缩三件套、沙盒模式隔离开发、需求拆分一次性说清、模型分层降本60%、Rules硬约束防废话、Prompt Caching实操、--bare参数10倍加速）*
+*最后更新：2026-05-29（根据今日开发者简报补充5项应对措施：CLAUDE.md结构化项目记忆、MCP整合扩展上下文、Plan/Act分离架构、Architect/Editor双模型、Git Worktree隔离、Dynamic Subagents上下文同步、CLAUDE.md结构化项目记忆、MCP整合扩展上下文边界、Plan/Act分离架构、Architect/Editor双模型、Git Worktree隔离调试、多工具基准测试选型防坑）*
