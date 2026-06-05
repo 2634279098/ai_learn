@@ -69,6 +69,8 @@
 - **CLAUDE.md 结构化项目记忆** — 使用 /init 自动生成或手动编写包含技术栈、代码风格、测试规范、禁止事项的 CLAUDE.md 模板，Claude Code 每次启动自动读取，保持一致代码风格并大幅减少重复说明，来源：AI开发者简报/2026-05-29_Claude_Code完整教学指南_1.md
 - **MCP 整合扩展上下文边界** — 通过 /mcp 连接 GitHub（读取 PR/Issue）、数据库（直接查询数据）、Slack（频道消息）、Filesystem（突破沙盒）等外部工具，让 AI Agent 获取超出项目目录的上下文信息，来源：AI开发者简报/2026-05-29_Claude_Code完整教学指南_1.md
 - **Dynamic Subagents 上下文同步与冲突解决** — Antigravity 2.0 的动态子代理机制：主 Agent 拆解任务后并行生成多个子 Agent 独立执行，通过 Context Sync 保持上下文一致性并自动解决冲突，适合大型 Feature 多模块协作场景，来源：AI开发者简报/2026-05-29_Google_Antigravity_2.0深度解析_3.md
+- **时间感知记忆生命周期管理** — Dreaming V3 的核心创新：记忆条目随实际时间推移自动更新状态（如"7月去新加坡"在7月结束后自动标记为"已完成"），避免 AI Agent 长期记住过时上下文（如永远推荐新加坡），实现方式是在记忆条目中存储时间元数据（valid_until、auto_update_rule），来源：AI开发者简报/2026-06-05_OpenAI_Dreaming_V3大规模记忆系统架构设计_3.md
+- **后台异步记忆管道** — 不在对话主流程中实时写入记忆（避免增加延迟），改为后台异步 Job 从对话历史中提取上下文→合并去重→更新记忆状态，下次对话自动注入相关记忆，平衡了上下文丰富度和响应速度，来源：AI开发者简报/2026-06-05_OpenAI_Dreaming_V3大规模记忆系统架构设计_3.md
 
 ---
 
@@ -121,6 +123,7 @@
 - **Claude Code Dreaming 自我审视循环** — Agent 在子任务间主动暂停、自我 review，自动寻找 pattern 和潜在 bug，将"人类反思"工程化为自动化循环，来源：AI开发者简报/2026-05-27_Claude_Code_Dreaming机制深度解析_2.md
 - **Git Worktree 隔离调试** — Grok Build 的每个子代理在独立 worktree 中运行，调试时可在隔离环境中复现问题而不影响主分支，支持 A/B 方案对比和分歧-收敛工作流（先分头探索再汇聚最优路径），来源：AI开发者简报/2026-05-29_AI编码Agent全景对比指南_2.md
 - **多工具基准测试选型防坑** — 使用 SWE-bench Pro 或 Terminal-Bench 2.0 评估（SWE-bench Verified 已污染），实际差距：Opus 4.7 从 Verified 87.6% 降到 Pro 64.3% 下降 23+ 点，选工具前用真实基准测试而非营销数据做决策，来源：AI开发者简报/2026-05-29_AI编码Agent全景对比指南_2.md
+- **Hook additionalContext 反馈闭环** — Claude Code v2.1.163 Stop/SubagentStop Hook 现可返回 `additionalContext`（如"auth.test.ts 第42行 JWT过期逻辑错误"），验证失败时不再是简单报错而是给出具体修复方向，Agent 在同一轮对话中继续修复，避免"验证失败→人工排查→重新对话"的打断流程，来源：AI开发者简报/2026-06-05_Claude_Code_v2.1.160-165安全加固与可靠性更新_1.md
 
 ---
 
@@ -184,6 +187,7 @@
 - **用户注入向量攻击防御** — Anthropic 红队演习证实用户可被钓鱼成为攻击向量（25次中24次成功外泄 AWS 凭证），模型层防御无法检测用户本人输入的攻击指令，唯一有效防御是环境层出口控制 + 文件系统边界隔离，HITL 不能替代环境控制，来源：AI开发者简报/2026-06-04_Anthropic_Claude容器化安全管控工程实践_1.md
 - **MCP 安全隧道企业部署** — OpenAI Secure MCP Tunnel 通过纯出站 HTTPS（零入站端口）让企业内网 MCP Server 安全接入 AI Agent，MCP Server 地址永不暴露公网、认证密钥不出企业边界，支持 mTLS 和自定义 CA，来源：AI开发者简报/2026-06-04_MCP_2026无状态协议革命与OpenAI安全隧道_3.md
 - **MCP 工具输出实时审查** — 工具调用通过代理路由，返回内容在注入 Agent 上下文前用快速分类器审查，防止恶意工具输出（如被投毒的 README）引导 Agent 执行危险操作，来源：AI开发者简报/2026-06-04_Anthropic_Claude容器化安全管控工程实践_1.md
+- **Claude Security AI 自动化安全审计** — 使用 Claude Opus 4.8 扫描代码库自动发现安全漏洞并生成修复补丁，已在 Glasswing 项目中验证发现 10,000+ 高危/严重漏洞，可嵌入 CI/CD 在代码合并前执行扫描，将安全审查从人工抽查升级为 AI 全量扫描，来源：AI开发者简报/2026-06-05_Anthropic_Project_Glasswing扩展与Claude_Security代码安全审计_2.md
 
 ---
 
