@@ -115,15 +115,23 @@
 
 ---
 
-## 第四阶段：Android 项目常见模式（1-2 周）
+## 第四阶段：协程与 Android 实战（2-3 周）
 
-### 12. 协程基础
+### 12. 协程全面教程 🔥
 
-- `suspend` 函数
-- `launch` 与 `async`
-- `CoroutineScope`、`viewModelScope`、`lifecycleScope`
-- `withContext(Dispatchers.IO)` 切换线程
-- 不需要精通，能看懂异步代码流程即可
+**目标：全面、深入地掌握 Kotlin 协程，能够熟练在 Android/后端项目中正确使用协程**
+
+从零开始学习协程，包括：协程概念、挂起函数、协程作用域、调度器、并发、取消与超时、异常处理、Flow 异步流、实际应用场景、最佳实践。
+
+📄 [详细内容 → 协程全面教程](5.1_协程全面教程.md)
+
+**学习重点：**
+- `suspend` 挂起函数的原理和使用
+- `launch` / `async` / `runBlocking` 的区别和使用场景
+- 调度器（Dispatchers）的选择：Default / IO / Main
+- 结构化并发（Structured Concurrency）的理解
+- 异常处理和协程取消
+- Flow 异步流的使用
 
 ### 13. Jetpack Compose 基础语法
 
